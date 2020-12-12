@@ -1,32 +1,38 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <m-header></m-header>
+    <m-tab :list="tabList"></m-tab>
+    <keep-alive>
+      <router-view/>
+    </keep-alive>
   </div>
 </template>
 
-<style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import MHeader from '@/components/m-header'
+import MTab from '@/components/m-tab'
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+export default {
+  name: 'App',
+  components: {
+    MHeader,
+    MTab
+  },
+  data () {
+    return {
+      tabList: [
+        { title: '推荐', path: 'recommend' },
+        { title: '歌手', path: 'singer' },
+        { title: '排行', path: 'rank' },
+        { title: '搜索', path: 'search' }
+      ]
     }
   }
+}
+</script>
+
+<style lang="less">
+#app {
+  min-height: 100vh;
 }
 </style>
