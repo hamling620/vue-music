@@ -2,8 +2,8 @@
   <div id="app">
     <m-header></m-header>
     <m-tab :list="tabList"></m-tab>
-    <keep-alive>
-      <router-view/>
+    <keep-alive :include="cachedViews">
+      <router-view :key="key" />
     </keep-alive>
   </div>
 </template>
@@ -17,6 +17,14 @@ export default {
   components: {
     MHeader,
     MTab
+  },
+  computed: {
+    cachedViews () {
+      return this.$store.getters.cachedViews
+    },
+    key () {
+      return this.$route.path
+    }
   },
   data () {
     return {
@@ -34,5 +42,11 @@ export default {
 <style lang="less">
 #app {
   min-height: 100vh;
+  .page-wrapper {
+    position: fixed;
+    width: 100%;
+    top: 88px;
+    bottom: 0;
+  }
 }
 </style>

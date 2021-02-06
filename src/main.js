@@ -5,6 +5,8 @@ import store from './store'
 import fastclick from 'fastclick'
 import VueLazyload from 'vue-lazyload'
 
+import './icons'
+
 import '@/assets/less/index.less'
 
 fastclick.attach(document.body)

@@ -1,5 +1,5 @@
 <template>
-  <div class="recommend">
+  <div class="recommend page-wrapper">
     <m-scroll class="recommend-content" :data="discList" ref="scroll">
       <div>
         <div class="slider-wrapper" v-if="recommends.length">
@@ -82,13 +82,9 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 @import '~@/assets/less/variable.less';
 .recommend {
-  position: fixed;
-  width: 100%;
-  top: 88px;
-  bottom: 0;
   &-content {
     height: 100%;
     overflow: hidden;

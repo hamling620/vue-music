@@ -3,7 +3,7 @@
     <div class="logo"></div>
     <h1 class="title">Vue Music</h1>
     <router-link tag="div" class="mine" to="/user">
-      <i class="mine-icon">&gt;</i>
+      <m-icon icon-class="user" class="icon-user"></m-icon>
     </router-link>
   </div>
 </template>
@@ -43,6 +43,12 @@ export default {
     position: absolute;
     top: 0;
     right: 0;
+    .icon-user {
+      display: block;
+      padding: 10px;
+      fill: @color-theme;
+      font-size: @font-size-large-x;
+    }
   }
 }
 </style>
