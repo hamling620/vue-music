@@ -54,8 +54,10 @@ export default {
     }
   },
   created () {
-    this.getRecommend()
-    this.getDiscList()
+    Promise.all([
+      this.getRecommend(),
+      this.getDiscList()
+    ])
   },
   methods: {
     async getRecommend () {

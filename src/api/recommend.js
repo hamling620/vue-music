@@ -31,6 +31,6 @@ export const getDiscList = async () => {
     const res = await axios.get(url, { params: data })
     return res.data
   } catch (e) {
-    Promise.reject(e)
+    return Promise.reject(e)
   }
 }
